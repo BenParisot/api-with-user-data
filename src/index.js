@@ -4,7 +4,7 @@ import startDebate from './debate-start-component.js';
 import scoreCandidates from './score-plus-minus-component.js';
 import sortCandidatesByDebateScore from './candidates-sort-component.js';
 import loadHeader from './make-header-component.js';
-import { auth } from './firebase.js';
+import { auth, candidatesListByUserRef } from './firebase.js';
 
 loadHeader();
 loadCandidates(candidates);
@@ -13,16 +13,10 @@ scoreCandidates(candidates);
 
 const endDebateButtonNode = document.getElementById('end-debate');
 
-auth.onAuthStateChanged(user => {
-    const userID = user.uid;
-    console.log('userID is', userID);
-});  
 endDebateButtonNode.addEventListener('click', () => {
-
-    const json = window.localStorage.getItem('sortedCandidates');
-    let sortedCandidates = JSON.parse(json);
-    sortedCandidates = sortCandidatesByDebateScore(candidates);
+    const sortedCandidates = sortCandidatesByDebateScore(candidates);
     loadCandidates(sortedCandidates);
-    const candidateJSON = JSON.stringify(sortedCandidates);
-    window.localStorage.setItem('sortedCandidates', candidateJSON);
+    const userID = auth.currentUser.uid;
+    candidatesListByUserRef.child(userID)
+        .set(sortedCandidates);
 });
