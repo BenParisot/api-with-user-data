@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/main.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
+    <title>Debate Results</title>
+</head>
+<body>
+    <header id="header"></header>
+    <main>
+        <section id="winner">
+            <h2>Your top candidate this debate was: Kamala Harris</h2>
+            <h3>Total Score: 30</h3>
+            <p>Number of Good Points: 33</p>
+            <p>Number of Bad Points: 3</p>
+        </section>
+        <hr>
+        <section id="runners-up">
+            <h3>Your other top candidates:</h3>
+            <p>Elizabeth Warren: 15 points</p>
+            <p>Jay Insley: 13 points</p>
+        </section>
+        <hr>
+        <section id="others">
+            <h4>Remaining Candidates:</h4>
+            <p>Booker: 7 points</p>
+            <p>Sanders: 6 points</p>
+            <p>Gillibrand: 5 points</p>
+        </section>
+        <hr>
+        <section id="debate-info">
+            <p>Debate Time: 02:25</p>
+            <p>Total Number of Good Points: 103</p>
+            <p>Total Number of Bad Points: 32</p>
+        </section>
+    </main>
+    <script type="module" src="src/results.js"></script>
+</body>
+</html>

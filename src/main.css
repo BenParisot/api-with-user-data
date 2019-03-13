@@ -1,0 +1,84 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: lightcyan;
+}
+
+header section {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+header img {
+    height: 100px;
+}
+
+header h1 {
+    flex-grow: 1;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-transform: uppercase;
+}
+
+#profile-display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+}
+
+#profile-display img {
+    height: 60px;
+    margin-right: 15px;
+}
+
+#profile-display button {
+    margin: 0px 15px;
+    box-shadow: none;
+    border: solid;
+    padding: 5px 7px;
+    background: coral;
+    font-size: 12px;
+}
+
+#candidates-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#candidates-list li {
+    display: flex;
+    flex-direction: row;
+}
+
+#candidates-list li:nth-child(odd) {
+    background: blue;
+    color: white;
+}
+
+#candidates-list li:nth-child(even) {
+    color: blue;
+}
+
+#candidates-list button {
+    width: 200px;
+    font-size: 90px;
+}
+
+.candidate-detail {
+    width: 600px;
+    text-align: center;
+}
+
+.candidate-detail h2 {
+    font-size: 36px;
+    line-height: .3;
+    text-transform: uppercase;
+}
