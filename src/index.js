@@ -1,15 +1,8 @@
-import candidates from '../data/candidates.js';
-import loadCandidates from './candidate-list-component.js';
-import startDebate from './debate-start-component.js';
-import scoreCandidates from './score-plus-minus-component.js';
-import sortCandidatesByDebateScore from './candidates-sort-component.js';
+
 import loadHeader from './make-header-component.js';
-import { auth, candidatesListByUserRef } from './firebase.js';
+import { auth } from './firebase.js';
 
 loadHeader();
-loadCandidates(candidates);
-startDebate(candidates);
-scoreCandidates(candidates);
 
 const endDebateButtonNode = document.getElementById('end-debate');
 
