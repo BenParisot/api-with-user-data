@@ -1,63 +1,45 @@
 const test = QUnit.test;
 
 
-function makeResultsArea(candidates) {
+function makeWinnerResultsArea(candidates) {
+    const topThree = candidates.slice(0, 3);
+    const runnersUp = candidates.slice(3);
     const html = `
-    <section id="winner">
-            <h2>Your top candidate this debate was: Kamala Harris</h2>
-            <h3>Total Score: 30</h3>
-            <p>Number of Good Points: 33</p>
-            <p>Number of Bad Points: 3</p>
-        </section>
-        <hr>
-        <section id="runners-up">
-            <h3>Your other top candidates:</h3>
-            <p>Elizabeth Warren: 15 points</p>
-            <p>Jay Insley: 13 points</p>
-        </section>
-        <hr>
-        <section id="others">
-            <h4>Remaining Candidates:</h4>
-            <p>Booker: 7 points</p>
-            <p>Sanders: 6 points</p>
-            <p>Gillibrand: 5 points</p>
-        </section>
-        <hr>
-        <section id="debate-info">
-            <p>Debate Time: 02:25</p>
-            <p>Total Number of Good Points: 103</p>
-            <p>Total Number of Bad Points: 32</p>
+        <section id="winner">
+            <img src="${topThree[0].image}" alt="${topThree[0].firstName} ${topThree[0].lastName}">
+            <h2>Your top candidate this debate was: ${topThree[0].firstName} ${topThree[0].lastName}</h2>
+            <h3>Points: ${topThree[0].debateScore}</h3>
         </section>`;
 
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
 }
-test('make results area from template', assert => {
+test('make winner-results area from template', assert => {
     const candidates = [
         {
             debateScore: 30,
             debateWins: 0,
             firstName: 'Kamala',
             id: 'harris',
-            image: './assets/candidates-harris.jpg',
+            image: 'assets/candidates-harris.jpg',
             lastName: 'Harris'
         },
         {
             debateScore: 15,
             debateWins: 0,
-            firstName: 'Kamala',
-            id: 'harris',
-            image: './assets/candidates-harris.jpg',
-            lastName: 'Harris'
+            firstName: 'Elizabeth',
+            id: 'warren',
+            image: 'assets/candidates-warren.jpg',
+            lastName: 'Warren'
         },
         {
             debateScore: 13,
             debateWins: 0,
-            firstName: 'Kamala',
-            id: 'harris',
-            image: './assets/candidates-harris.jpg',
-            lastName: 'Harris'
+            firstName: 'Jay',
+            id: 'inslee',
+            image: './assets/candidates-inslee.jpg',
+            lastName: 'Inslee'
         },
         {
             debateScore: 7,
@@ -68,50 +50,30 @@ test('make results area from template', assert => {
             lastName: 'Harris'
         },
         {
-            debateScore: 6,
+            debateScore: 7,
             debateWins: 0,
-            firstName: 'Kamala',
-            id: 'harris',
-            image: './assets/candidates-harris.jpg',
-            lastName: 'Harris'
+            firstName: 'Cory',
+            id: 'booker',
+            image: './assets/candidates-booker.jpg',
+            lastName: 'Booker'
         },
         {
             debateScore: 5,
             debateWins: 0,
-            firstName: 'Kamala',
-            id: 'harris',
-            image: './assets/candidates-harris.jpg',
-            lastName: 'Harris'
+            firstName: 'Bernie',
+            id: 'sanders',
+            image: './assets/candidates-sanders.jpg',
+            lastName: 'Sanders'
         }
     ];
     const expected = `
-    <section id="winner">
+        <section id="winner">
+            <img src="assets/candidates-harris.jpg" alt="Kamala Harris">
             <h2>Your top candidate this debate was: Kamala Harris</h2>
-            <h3>Total Score: 30</h3>
-            <p>Number of Good Points: 33</p>
-            <p>Number of Bad Points: 3</p>
-        </section>
-        <hr>
-        <section id="runners-up">
-            <h3>Your other top candidates:</h3>
-            <p>Elizabeth Warren: 15 points</p>
-            <p>Jay Insley: 13 points</p>
-        </section>
-        <hr>
-        <section id="others">
-            <h4>Remaining Candidates:</h4>
-            <p>Booker: 7 points</p>
-            <p>Sanders: 6 points</p>
-            <p>Gillibrand: 5 points</p>
-        </section>
-        <hr>
-        <section id="debate-info">
-            <p>Debate Time: 02:25</p>
-            <p>Total Number of Good Points: 103</p>
-            <p>Total Number of Bad Points: 32</p>
+            <h3>Points: 30</h3>
         </section>`;
 
-    const result = makeResultsArea(candidates);
+    const result = makeWinnerResultsArea(candidates);
 
     assert.htmlEqual(result, expected);
 });

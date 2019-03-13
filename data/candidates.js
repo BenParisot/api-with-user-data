@@ -3,7 +3,7 @@ const candidates = [
         id: 'booker',
         firstName: 'Cory',
         lastName: 'Booker',
-        image: './assets/candidates-booker.jpg',
+        image: 'assets/candidates-booker.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -11,7 +11,7 @@ const candidates = [
         id: 'buttigieg',
         firstName: 'Pete',
         lastName: 'Buttigieg',
-        image: './assets/candidates-buttigieg.jpg',
+        image: 'assets/candidates-buttigieg.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -19,7 +19,7 @@ const candidates = [
         id: 'castro',
         firstName: 'Julian',
         lastName: 'Castro',
-        image: './assets/candidates-castro.jpg',
+        image: 'assets/candidates-castro.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -27,7 +27,7 @@ const candidates = [
         id: 'delaney',
         firstName: 'John',
         lastName: 'Delaney',
-        image: './assets/candidates-delaney.jpg',
+        image: 'assets/candidates-delaney.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -35,7 +35,7 @@ const candidates = [
         id: 'gabbard',
         firstName: 'Tulsi',
         lastName: 'Gabbard',
-        image: './assets/candidates-gabbard.jpg',
+        image: 'assets/candidates-gabbard.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -43,7 +43,7 @@ const candidates = [
         id: 'gillibrand',
         firstName: 'Kirsten',
         lastName: 'Gillibrand',
-        image: './assets/candidates-gillibrand.jpg',
+        image: 'assets/candidates-gillibrand.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -51,7 +51,7 @@ const candidates = [
         id: 'harris',
         firstName: 'Kamala',
         lastName: 'Harris',
-        image: './assets/candidates-harris.jpg',
+        image: 'assets/candidates-harris.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -59,7 +59,7 @@ const candidates = [
         id: 'inslee',
         firstName: 'Jay',
         lastName: 'Inslee',
-        image: './assets/candidates-inslee.jpg',
+        image: 'assets/candidates-inslee.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -67,7 +67,7 @@ const candidates = [
         id: 'klobuchar',
         firstName: 'Amy',
         lastName: 'Klobuchar',
-        image: './assets/candidates-klobuchar.jpg',
+        image: 'assets/candidates-klobuchar.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -75,7 +75,7 @@ const candidates = [
         id: 'ojeda',
         firstName: 'Richard',
         lastName: 'Ojeda',
-        image: './assets/candidates-ojeda.jpg',
+        image: 'assets/candidates-ojeda.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -83,7 +83,7 @@ const candidates = [
         id: 'sanders',
         firstName: 'Bernie',
         lastName: 'Sanders',
-        image: './assets/candidates-sanders.jpg',
+        image: 'assets/candidates-sanders.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -92,7 +92,7 @@ const candidates = [
         id: 'warren',
         firstName: 'Elizabeth',
         lastName: 'Warren',
-        image: './assets/candidates-warren.jpg',
+        image: 'assets/candidates-warren.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -100,7 +100,7 @@ const candidates = [
         id: 'williamson',
         firstName: 'Marianne',
         lastName: 'Williamson',
-        image: './assets/candidates-williamson.jpg',
+        image: 'assets/candidates-williamson.jpg',
         debateScore: 0,
         debateWins: 0
     },
@@ -108,7 +108,7 @@ const candidates = [
         id: 'yang',
         firstName: 'Andrew',
         lastName: 'Yang',
-        image: './assets/candidates-yang.jpg',
+        image: 'assets/candidates-yang.jpg',
         debateScore: 0,
         debateWins: 0
     }

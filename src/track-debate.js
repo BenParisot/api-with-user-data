@@ -19,4 +19,6 @@ endDebateButtonNode.addEventListener('click', () => {
     const userID = auth.currentUser.uid;
     candidatesListByUserRef.child(userID)
         .set(sortedCandidates);
+
+    window.location = "results.html";
 });
