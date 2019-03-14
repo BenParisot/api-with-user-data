@@ -1,4 +1,7 @@
 import { getSearchNameFromHash } from './get-searchname-from-hash.js';
+import loadHeader from './make-header-component.js';
+
+loadHeader();
 
 const existingQuery = window.location.hash.slice(1);
 const searchName = getSearchNameFromHash(existingQuery);

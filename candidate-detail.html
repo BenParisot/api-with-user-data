@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./src/main.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
     <title>Candidate Detail</title>
 </head>
 <body>
+    <header id="header"></header>
+    <body>
+        <section id="details">
+            <img src="assets/candidates-gabbard.jpg" alt="Tulsi Gabbard">
+            <h2>Tulsi Gabbard</h2>
+        </section>
+        <ul id="candidate-news">
+            <li>
+                <img src="https://static01.nyt.com/images/2019/01/12/us/politics/12gabbard/12gabbard-thumbStandard.jpg" alt="Tulsi Gabbard">
+                <h3>Tulsi Gabbard, Representative From Hawaii, Announces Democratic Presidential Bid</h3>
+                <p>Ms. Gabbard, 37, joins what is likely to be a jammed Democratic field. She has earned a reputation for sometimes breaking from the Democratic Party line.</p>
+                <p>
+                    <a href="https://www.nytimes.com/2019/01/11/us/politics/tulsi-gabbard-2020-president-announcement.html">Read More</a> | <span class="favorite-article">Save for Later</span>
+                </p>
+            </li>
+        </ul>
+    </body>
     <script type="module" src="src/candidate-detail.js"></script>
 </body>
 </html>
