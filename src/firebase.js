@@ -11,4 +11,5 @@ export const auth = firebase.auth();
 export const db = firebase.database();
 export const userRef = db.ref('user');
 export const candidatesListByUserRef = db.ref('candidates-list-by-user');
+export const favoriteArticlesByUserRef = db.ref('favorite-articles-by-user');
 

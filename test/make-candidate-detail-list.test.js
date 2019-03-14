@@ -1,32 +1,5 @@
+import { makeCandidateDetailArea, makeCandidateNewsList } from '../src/candidate-detail-component.js';
 const test = QUnit.test;
-
-function makeCandidateDetailArea(candidate) {
-    const html = `
-    <section>
-        <img src="${candidate.image}" alt="${candidate.firstName} ${candidate.lastName}">
-        <h2>${candidate.firstName} ${candidate.lastName}</h2>
-    </section>`;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
-
-function makeCandidateNewsList(newsItem) {
-    const html = `
-    <li>
-        <img src="${newsItem.baseURL}${newsItem.image}" alt="${newsItem.firstName} ${newsItem.lastName}">
-        <h3>${newsItem.headline}</h3>
-        <p>${newsItem.snippet}</p>
-        <p>
-            <a href="${newsItem.articleLink}">Read More</a> | <span class="favorite-article">Save for Later</span>
-        </p>
-    </li>`;
-
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
-
 
 test('make candidate detail area from template', assert => {
     const candidate = {
