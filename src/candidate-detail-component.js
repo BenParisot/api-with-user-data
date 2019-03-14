@@ -12,14 +12,17 @@ export function makeCandidateDetailArea(candidate) {
 }
 
 export function makeCandidateNewsList(newsItem) {
+    const image = newsItem.multimedia.find(image => image.crop_name === 'thumbStandard').url;
+
     const html = `
-    <li>
-        <img src="https://static01.nyt.com/${newsItem.multimedia[3].url}">
-        <h3>${newsItem.headline.main}</h3>
-        <p>${newsItem.snippet}</p>
-        <p><a href="${newsItem.web_url}">Read More</a> | <span class="favorite-article">☆ Save for Later</span>
-        </p>
-    </li>`;
+        <li>
+            <img src="https://static01.nyt.com/${image}">
+            <h3>${newsItem.headline.main}</h3>
+            <p>${newsItem.snippet}</p>
+            <p><a href="${newsItem.web_url}">Read More</a> | <span class="favorite-article">☆ Save for Later</span>
+            </p>
+        </li>`;
+
 
     const template = document.createElement('template');
     template.innerHTML = html;
@@ -57,7 +60,7 @@ export function loadCandidateNewsItems(newsItems) {
                     img: newsItem.multimedia[3].url,
                     headline: newsItem.headline.main,
                     snippet: newsItem.snippet,
-                    articleLink: newsItem.web_url
+                    articleLink: newsItem.web_url,
                 })
             }
         })
