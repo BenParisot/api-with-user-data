@@ -1,17 +1,16 @@
+import { getSearchNameFromHash } from './get-searchname-from-hash.js';
 
+const existingQuery = window.location.hash.slice(1);
+const searchName = getSearchNameFromHash(existingQuery);
+console.log(searchName);
 
+const BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?';
+const API_KEY = '48DyuLG1wCcdW2CabBP6RcpqpqovELmu';
+const url = `${BASE_URL}q=${searchName}&api-key=${API_KEY}`;
 
-const propubURL = 'https://api.propublica.org/campaign-finance/v1/2016/president/candidates/warren.json'
-
-const headers = {
-    'X-API-Key': '4O6NV3vhPpRsVHHzvDWSYl3HhJH6SzsA6M4TQtXw'
-}
-
-const nytURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Cory+Booker&api-key=48DyuLG1wCcdW2CabBP6RcpqpqovELmu';
-
-// // fetch(nytURL)
-//     .then(response => response.json())
-//     .then(body => {
-//         console.log(body.response.docs);
-//     });
+fetch(url)
+    .then(response => response.json())
+    .then(body => {
+        console.log(body.response.docs);
+    });
 

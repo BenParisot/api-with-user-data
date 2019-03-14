@@ -43,7 +43,7 @@ test('make winner-results area from template', assert => {
             <img src="assets/candidates-harris.jpg" alt="Kamala Harris">
             <h2>Your top candidate this debate was: Kamala Harris</h2>
             <h3>Points: 30</h3>
-            <h3><a href="candidate-detail.html#Kamala+Harris">Candidate Detail</a></h3>
+            <h3><a href="candidate-detail.html#f=Kamala&amp;l=Harris">Candidate Detail</a></h3>
         </section>`;
 
     const result = makeWinnerResultsArea(candidates);
@@ -57,11 +57,11 @@ test('make runners up area from template', assert => {
             <img src="assets/candidates-warren.jpg" alt="Elizabeth Warren">
             <p>Elizabeth Warren</p>
             <p>Points: 15</p>
-            <p><a href="candidate-detail.html#Elizabeth+Warren">Candidate Detail</a></p>
+            <p><a href="candidate-detail.html#f=Elizabeth&amp;l=Warren">Candidate Detail</a></p>
             <img src="assets/candidates-inslee.jpg" alt="Jay Inslee">
             <p>Jay Inslee</p>
             <p>Points: 13</p>
-            <p><a href="candidate-detail.html#Jay+Inslee">Candidate Detail</a></p>
+            <p><a href="candidate-detail.html#f=Jay&amp;l=Inslee">Candidate Detail</a></p>
         </section>`;
 
     const result = makeRunnersUpArea(candidates);
@@ -80,7 +80,7 @@ test('make runnersup of candidates results area from template', assert => {
     };
     const expected = `
         <li>
-            <p>Booker: 7 points, <a href="candidate-detail.html#Cory+Booker">Candidate Detail</a></p>
+            <p>Booker: 7 points, <a href="candidate-detail.html#f=Cory&amp;l=Booker">Candidate Detail</a></p>
         </li>`;
 
     const result = makeOthersArea(candidate);
