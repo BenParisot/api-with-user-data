@@ -68,6 +68,7 @@ export function loadCandidateNewsItems(newsItems) {
                 favoriteArticle.classList.add('favorite');
                 favoriteArticle.textContent = '‎★ This Article is Saved';
                 userFavoriteArticleRef.set({
+                    id: newsItem._id,
                     img: newsItem.multimedia[3].url,
                     headline: newsItem.headline.main,
                     snippet: newsItem.snippet,

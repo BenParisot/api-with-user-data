@@ -26,11 +26,16 @@ auth.onAuthStateChanged(user => {
     userSavedArticles.once('value')
         .then(snapshot => {
             const savedArticles = snapshot.val();
+            
             if(savedArticles) {
                 const savedArticlesArray = objectToArray(savedArticles);
                 savedArticlesArray.forEach(article => {
                     const articleLI = makeSavedNewsList(article);
                     const savedArticle = articleLI.querySelector('.favorite-article');
+                    const newSavedArticlesRef = favoriteArticlesByUserRef.child(userID);
+                    const newSavedArticleRef = newSavedArticlesRef.child(article.id);
+                    console.log(article.id);
+                    
 
                     let isFavorite = false;
 
@@ -49,6 +54,7 @@ auth.onAuthStateChanged(user => {
                             isFavorite = false;
                             savedArticle.classList.remove('favorite');
                             savedArticle.textContent = '‎☆ Save for Later';
+                            newSavedArticleRef.remove();
                         } else {
                             isFavorite = true;
                             savedArticle.classList.add('favorite');
