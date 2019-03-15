@@ -23,7 +23,6 @@ export function makeCandidateNewsList(newsItem) {
             </p>
         </li>`;
 
-
     const template = document.createElement('template');
     template.innerHTML = html;
     return template.content;
@@ -63,13 +62,11 @@ export function loadCandidateNewsItems(newsItems) {
                 userFavoriteArticleRef.remove();
                 favoriteArticle.classList.remove('favorite');
                 favoriteArticle.textContent = '☆ Save for Later';
-                console.log('favorite removed');
             }
             else {
                 isFavorite = true;
                 favoriteArticle.classList.add('favorite');
                 favoriteArticle.textContent = '‎★ This Article is Saved';
-                console.log('favorite added');
                 userFavoriteArticleRef.set({
                     img: newsItem.multimedia[3].url,
                     headline: newsItem.headline.main,
@@ -82,7 +79,6 @@ export function loadCandidateNewsItems(newsItems) {
         newsListNode.appendChild(newsLI);
     });
 }
-
 
 const candidateDetailsNode = document.getElementById('details');
 export function loadCandidateDetails(candidate) {

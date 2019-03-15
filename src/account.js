@@ -11,7 +11,6 @@ const candidateListNode = document.getElementById('candidates-list');
 auth.onAuthStateChanged(user => {
     const userID = user.uid;
 
-    //make total candidates list
     const candidateTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
     candidateTotalScoresRef.once('value') 
         .then(snapshot => {
@@ -23,7 +22,6 @@ auth.onAuthStateChanged(user => {
             });
         });
 
-    //make saved news area
     const userSavedArticles = favoriteArticlesByUserRef.child(userID);
     userSavedArticles.once('value')
         .then(snapshot => {
@@ -37,12 +35,10 @@ auth.onAuthStateChanged(user => {
                     let isFavorite = false;
 
                     if(savedArticle) {
-                        console.log('this article is saved: ', article);
                         isFavorite = true;
                         savedArticle.classList.add('favorite');
                         savedArticle.textContent = '‎★ This Article is Saved';
                     } else {
-                        console.log('this article is not saved');
                         isFavorite = false;
                         savedArticle.classList.remove('favorite');
                         savedArticle.textContent = '‎☆ Save for Later';
@@ -62,7 +58,6 @@ auth.onAuthStateChanged(user => {
                     newsListNode.appendChild(articleLI);
                 });
             } else {
-                console.log('there are no saved articles yet');
                 const noArticleNotice = document.createElement('p');
                 noArticleNotice.textContent = 'You have no saved articles.';
                 newsListNode.appendChild(noArticleNotice);
@@ -85,59 +80,6 @@ function makeSavedNewsList(newsItem) {
     template.innerHTML = html;
     return template.content;
 }
-
-// function loadSavedNewsList(newsItems) {
-//     newsItems.forEach(newsItem => {
-//         const newsLI = makeSavedNewsList(newsItem);
-//         const favoriteArticle = newsLI.querySelector('.favorite-article');
-//         const userID = auth.currentUser.uid;
-//         const userFavoritesRef = favoriteArticlesByUserRef.child(userID);
-//         const userFavoriteArticleRef = userFavoritesRef.child(newsItem._id);
-
-//         let isFavorite = false;
-
-//         userFavoriteArticleRef.once('value')
-//             .then(snapshot => {
-//                 const value = snapshot.val();
-//                 if(value) {
-//                     isFavorite = true;
-//                     favoriteArticle.classList.add('favorite');
-//                     favoriteArticle.textContent = '‎★ This Article is Saved';
-//                 } else {
-//                     isFavorite = false;
-//                     favoriteArticle.classList.remove('favorite');
-//                     favoriteArticle.textContent = '‎☆ Save for Later';
-//                 }
-//             });
-
-//         favoriteArticle.addEventListener('click', () => {
-//             if(isFavorite) {
-//                 isFavorite = false;
-//                 userFavoriteArticleRef.remove();
-//                 favoriteArticle.classList.remove('favorite');
-//                 favoriteArticle.textContent = '☆ Save for Later';
-//                 console.log('favorite removed');
-//             }
-//             else {
-//                 isFavorite = true;
-//                 favoriteArticle.classList.add('favorite');
-//                 favoriteArticle.textContent = '‎★ This Article is Saved';
-//                 console.log('favorite added');
-//                 userFavoriteArticleRef.set({
-//                     img: newsItem.multimedia[3].url,
-//                     headline: newsItem.headline.main,
-//                     snippet: newsItem.snippet,
-//                     articleLink: newsItem.web_url,
-//                 })
-//             }
-//         })
-
-
-
-
-//         newsListNode.appendChild(newsLI);
-//     });
-// }
 
  function makeCandidatesList(candidate) {
     const html = `
