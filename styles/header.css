@@ -37,3 +37,19 @@
     text-transform: uppercase;
 }
 
+#subhead {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fea579;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    height: 40px;
+}
+
+#subhead a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 15px;
+
+}
