@@ -10,6 +10,8 @@ const candidateListNode = document.getElementById('candidates-list');
 
 auth.onAuthStateChanged(user => {
     const userID = user.uid;
+
+    //make total candidates list
     const candidateTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
     candidateTotalScoresRef.once('value') 
         .then(snapshot => {
@@ -21,31 +23,24 @@ auth.onAuthStateChanged(user => {
                 candidateListNode.appendChild(candidateLI);
             });
         });
-});
 
-// auth.onAuthStateChanged(user => {
-//     const userID = user.uid;
-//     console.log(userID);
-//     const favoriteArticles = favoriteArticlesByUserRef.child(userID);
-//     favoriteArticles.once('value')
-//         .then(snapshot => {
-//             const newsObject = snapshot.val();
-//             const newsItems = objectToArray(newsObject);
-//             loadSavedNewsList(newsItems);
-//         });
-//     const candidatesTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
-//     candidatesTotalScoresRef.once('value')
-//             .then(snapshot => {
-//                 const candidates = snapshot.val()
-//                 console.log(candidates);
-//                 const sortedCandidates = sortCandidatesByTotalScore(candidates);
-//                 console.log(sortedCandidates);
-//                 sortedCandidates.forEach(candidate => {
-//                     const candidateLI = makeCandidatesList(candidate);
-//                     candidateListNode.appendChild(candidateLI);
-//                 });
-//             });
-// });
+    //make saved news area
+    const userSavedArticles = favoriteArticlesByUserRef.child(userID);
+    userSavedArticles.once('value')
+        .then(snapshot => {
+            const savedArticles = snapshot.val();
+            if(savedArticles) {
+                console.log(savedArticles);
+                const savedArticlesArray = objectToArray(savedArticles);
+                loadSavedNewsList(savedArticlesArray);  
+            } else {
+                console.log('there are no saved articles yet');
+                const noArticleNotice = document.createElement('p');
+                noArticleNotice.textContent = 'You have no saved articles.';
+                newsListNode.appendChild(noArticleNotice);
+            }
+        });
+});
 
 function makeSavedNewsList(newsItem) {
     const html = `
