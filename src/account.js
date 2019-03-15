@@ -81,7 +81,7 @@ function makeSavedNewsList(newsItem) {
     return template.content;
 }
 
- function makeCandidatesList(candidate) {
+function makeCandidatesList(candidate) {
     const html = `
         <li>
             <p>${candidate.lastName}: ${candidate.totalScore} points, <a href="candidate-detail.html#f=${candidate.firstName}&l=${candidate.lastName}">Candidate Detail</a></p>

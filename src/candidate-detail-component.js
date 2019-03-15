@@ -72,9 +72,9 @@ export function loadCandidateNewsItems(newsItems) {
                     headline: newsItem.headline.main,
                     snippet: newsItem.snippet,
                     articleLink: newsItem.web_url,
-                })
+                });
             }
-        })
+        });
 
         newsListNode.appendChild(newsLI);
     });
