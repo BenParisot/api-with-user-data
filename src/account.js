@@ -13,8 +13,13 @@ auth.onAuthStateChanged(user => {
     const candidateTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
     candidateTotalScoresRef.once('value') 
         .then(snapshot => {
-            const value = snapshot.val();
-            console.log(value);
+            const candidateTotals = snapshot.val();
+            console.log(candidateTotals);
+            const sortedCandidateTotals = sortCandidatesByTotalScore(candidateTotals);
+            sortedCandidateTotals.forEach(candidate => {
+                const candidateLI = makeCandidatesList(candidate);
+                candidateListNode.appendChild(candidateLI);
+            });
         });
 });
 
