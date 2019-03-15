@@ -4,7 +4,6 @@ import objectToArray from './object-to-array.js';
 
 loadHeader();
 
-
 const newsListNode = document.getElementById('candidate-news');
 
 auth.onAuthStateChanged(user => {
@@ -14,7 +13,6 @@ auth.onAuthStateChanged(user => {
         .then(snapshot => {
             const newsObject = snapshot.val();
             const newsItems = objectToArray(newsObject);
-            console.log(newsItems);
             loadSavedNewsList(newsItems);
         });
 });
