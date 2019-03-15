@@ -114,6 +114,45 @@ main {
     text-decoration: none;
 }
 
+#track-section {
+    display: flex;
+    background: white;
+    padding: 10px 25px;
+    padding-right: 65px;
+}
+
+
+
+#intro, #results {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 25px;
+    font-size: 18px;
+    color: rgb(63, 63, 63);
+}
+
+#intro button {
+    color: black;
+    margin: 10px 15px;
+    box-shadow: none;
+    border: solid black;
+    padding: 10px 15px;
+    background: #fea579;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#results-section {
+    padding-left: 35px;
+}
+
+#results-section h2 {
+    font-family: 'Roboto', sans-serif;
+    padding-left: 25px;
+    font-size: 36px;
+    color: rgb(91, 91, 91);
+}
+
 footer {
     background: #f78ca4;
     color: white;

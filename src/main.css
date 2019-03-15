@@ -47,6 +47,7 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 #candidates-list li {
     display: flex;
@@ -54,21 +55,21 @@ header img {
 }
 
 #candidates-list li:nth-child(odd) {
-    background: blue;
-    color: white;
+    background: coral;
+    color: black;
 }
 
 #candidates-list li:nth-child(even) {
-    color: blue;
+    color: black;
 }
 
 #candidates-list button {
-    width: 200px;
+    width: 15%;
     font-size: 90px;
 }
 
 .candidate-detail {
-    width: 600px;
+    width: 70%;
     text-align: center;
 }
 
