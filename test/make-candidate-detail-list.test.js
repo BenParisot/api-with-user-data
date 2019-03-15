@@ -13,7 +13,7 @@ test('make candidate detail area from template', assert => {
     const expected = `
     <section>
         <img src="assets/candidates-gabbard.jpg" alt="Tulsi Gabbard">
-        <h2>Tulsi Gabbard</h2>
+        <h1>Tulsi Gabbard</h1>
     </section>`;
 
     const result = makeCandidateDetailArea(candidate);

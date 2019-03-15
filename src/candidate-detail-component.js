@@ -6,7 +6,6 @@ export function makeCandidateDetailArea(candidate) {
     <section>
         <img src="${candidate.image}" alt="${candidate.firstName} ${candidate.lastName}">
         <h1>${candidate.firstName} ${candidate.lastName}</h1>
-        <h2>Total Points: ${candidate.totalScore}</h2>
     </section>`;
     const template = document.createElement('template');
     template.innerHTML = html;
