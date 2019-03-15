@@ -20,11 +20,6 @@ header img {
     height: 100px;
 }
 
-header h1 {
-    flex-grow: 1;
-    font-family: 'Gloria Hallelujah', cursive;
-    text-transform: uppercase;
-}
 
 #profile-display {
     display: flex;

@@ -7,31 +7,25 @@
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
+    <link rel="stylesheet" href="./styles/header.css">
     <title>Your Account</title>
 </head>
 <body>
     <header id="header">
-        <h1>Track</h1>
-        <section id="year">
-            <h2>20</h2>
-            <h2>20</h2> 
-        </section>
+        <h1>Track2020</h1>
     </header>
     <main>
-        <h1>Your Account:</h1>
-        <p>lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum lorem ipsum dolorum </p>
-        <a href="/">Back to Home</a>
-        <section id="candidates">
-            <h2>Your Candidate Scores:</h2>
-            <ul id="candidates-list">
-                
-            </ul>
-        </section>
-        <section id="news-area">
-            <h2>Your Saved Articles</h2>
-            <ul id="candidate-news">
-
-            </ul>
+        <h1>Your Account</h1>
+        <a href="track-debate.html">Track Another Debate</a>
+        <section id="saved-area">
+            <section id="candidates">
+                <h2>Your Candidate Scores:</h2>
+                <ol id="candidates-list"></ol>
+            </section>
+            <section id="news-area">
+                <h2>Your Saved Articles</h2>
+                <ul id="candidate-news"></ul>
+            </section>
         </section>
     </main>
     <script type="module" src="src/account.js"></script>
