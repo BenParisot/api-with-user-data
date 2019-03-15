@@ -16,7 +16,6 @@ auth.onAuthStateChanged(user => {
     candidateTotalScoresRef.once('value') 
         .then(snapshot => {
             const candidateTotals = snapshot.val();
-            console.log(candidateTotals);
             const sortedCandidateTotals = sortCandidatesByTotalScore(candidateTotals);
             sortedCandidateTotals.forEach(candidate => {
                 const candidateLI = makeCandidatesList(candidate);
@@ -30,9 +29,40 @@ auth.onAuthStateChanged(user => {
         .then(snapshot => {
             const savedArticles = snapshot.val();
             if(savedArticles) {
-                console.log(savedArticles);
                 const savedArticlesArray = objectToArray(savedArticles);
-                loadSavedNewsList(savedArticlesArray);  
+                savedArticlesArray.forEach(article => {
+                    const articleLI = makeSavedNewsList(article);
+                    const savedArticle = articleLI.querySelector('.favorite-article');
+    
+                    let isFavorite = false;
+
+                    if(savedArticle) {
+                        console.log('this article is saved: ', article);
+                        isFavorite = true;
+                        savedArticle.classList.add('favorite');
+                        savedArticle.textContent = '‎★ This Article is Saved';
+                    } else {
+                        console.log('this article is not saved');
+                        isFavorite = false;
+                        savedArticle.classList.remove('favorite');
+                        savedArticle.textContent = '‎☆ Save for Later';
+                    }
+
+                    savedArticle.addEventListener('click', () => {
+                        if(isFavorite) {
+                            isFavorite = false;
+                            savedArticle.classList.remove('favorite');
+                            savedArticle.textContent = '‎☆ Save for Later';
+                        } else {
+                            isFavorite = true;
+                            savedArticle.classList.add('favorite');
+                            savedArticle.textContent = '‎★ This Article is Saved';
+                        }
+                    });
+
+
+                    newsListNode.appendChild(articleLI);
+                });
             } else {
                 console.log('there are no saved articles yet');
                 const noArticleNotice = document.createElement('p');
@@ -57,12 +87,58 @@ function makeSavedNewsList(newsItem) {
     return template.content;
 }
 
-function loadSavedNewsList(newsItems) {
-    newsItems.forEach(newsItem => {
-        const newsLI = makeSavedNewsList(newsItem);
-        newsListNode.appendChild(newsLI);
-    });
-}
+// function loadSavedNewsList(newsItems) {
+//     newsItems.forEach(newsItem => {
+//         const newsLI = makeSavedNewsList(newsItem);
+//         const favoriteArticle = newsLI.querySelector('.favorite-article');
+//         const userID = auth.currentUser.uid;
+//         const userFavoritesRef = favoriteArticlesByUserRef.child(userID);
+//         const userFavoriteArticleRef = userFavoritesRef.child(newsItem._id);
+
+//         let isFavorite = false;
+
+//         userFavoriteArticleRef.once('value')
+//             .then(snapshot => {
+//                 const value = snapshot.val();
+//                 if(value) {
+//                     isFavorite = true;
+//                     favoriteArticle.classList.add('favorite');
+//                     favoriteArticle.textContent = '‎★ This Article is Saved';
+//                 } else {
+//                     isFavorite = false;
+//                     favoriteArticle.classList.remove('favorite');
+//                     favoriteArticle.textContent = '‎☆ Save for Later';
+//                 }
+//             });
+
+//         favoriteArticle.addEventListener('click', () => {
+//             if(isFavorite) {
+//                 isFavorite = false;
+//                 userFavoriteArticleRef.remove();
+//                 favoriteArticle.classList.remove('favorite');
+//                 favoriteArticle.textContent = '☆ Save for Later';
+//                 console.log('favorite removed');
+//             }
+//             else {
+//                 isFavorite = true;
+//                 favoriteArticle.classList.add('favorite');
+//                 favoriteArticle.textContent = '‎★ This Article is Saved';
+//                 console.log('favorite added');
+//                 userFavoriteArticleRef.set({
+//                     img: newsItem.multimedia[3].url,
+//                     headline: newsItem.headline.main,
+//                     snippet: newsItem.snippet,
+//                     articleLink: newsItem.web_url,
+//                 })
+//             }
+//         })
+
+
+
+
+//         newsListNode.appendChild(newsLI);
+//     });
+// }
 
  function makeCandidatesList(candidate) {
     const html = `
