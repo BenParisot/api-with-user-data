@@ -1,7 +1,6 @@
 import { auth, favoriteArticlesByUserRef } from './firebase.js';
 
 export function makeCandidateDetailArea(candidate) {
-    console.log(candidate);
     const html = `
     <section>
         <img src="${candidate.image}" alt="${candidate.firstName} ${candidate.lastName}">

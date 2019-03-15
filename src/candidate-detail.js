@@ -22,7 +22,6 @@ fetch(url)
     .then(response => response.json())
     .then(body => {
         const newsItems = body.response.docs;
-        console.log(newsItems);
         loadCandidateNewsItems(newsItems);
     });
 

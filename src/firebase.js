@@ -1,8 +1,8 @@
 var config = {
-    apiKey: "AIzaSyBlWWZMehdMG_wb6LGWvTU6FdiqtI_U4yg",
-    authDomain: "debate-app-prototype.firebaseapp.com",
-    databaseURL: "https://debate-app-prototype.firebaseio.com",
-    projectId: "debate-app-prototype",
+    apiKey: 'AIzaSyBlWWZMehdMG_wb6LGWvTU6FdiqtI_U4yg',
+    authDomain: 'debate-app-prototype.firebaseapp.com',
+    databaseURL: 'https://debate-app-prototype.firebaseio.com',
+    projectId: 'debate-app-prototype'
 };
 
 firebase.initializeApp(config);

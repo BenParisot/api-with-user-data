@@ -12,10 +12,10 @@ ui.start('#login', {
             const user = authResult.user;
             userRef.child(user.uid) 
                 .set({
-                uid: user.uid,
-                displayName: user.displayName,
-                photoURL: user.photoURL
-            });
+                    uid: user.uid,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL
+                });
             return true;
         }
     }

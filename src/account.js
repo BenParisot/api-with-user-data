@@ -33,9 +33,7 @@ auth.onAuthStateChanged(user => {
                     const articleLI = makeSavedNewsList(article);
                     const savedArticle = articleLI.querySelector('.favorite-article');
                     const newSavedArticlesRef = favoriteArticlesByUserRef.child(userID);
-                    const newSavedArticleRef = newSavedArticlesRef.child(article.id);
-                    console.log(article.id);
-                    
+                    const newSavedArticleRef = newSavedArticlesRef.child(article.id);                    
 
                     let isFavorite = false;
 

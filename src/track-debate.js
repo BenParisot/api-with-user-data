@@ -265,12 +265,9 @@ endDebateButtonNode.addEventListener('click', () => {
                 }
             });
     });
-    //instead of redirecting to results, display results info in left side of page next to sorted list
     introNode.hidden = true;
     loadResults();
     resultsSectionNode.hidden = false;
-
-    // window.location = 'results.html';
 });
 
 
