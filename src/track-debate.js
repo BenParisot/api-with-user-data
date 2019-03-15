@@ -3,6 +3,7 @@ import loadCandidates from './candidate-list-component.js';
 import scoreCandidates from './score-plus-minus-component.js';
 import sortCandidatesByDebateScore from './candidates-sort-component.js';
 import loadHeader from './make-header-component.js';
+import loadResults from './results-component.js';
 import { auth, candidatesListByUserRef, totalCandidateScoresByUserRef } from './firebase.js';
 
 loadHeader();
@@ -10,6 +11,8 @@ loadCandidates(candidates);
 scoreCandidates(candidates);
 
 const endDebateButtonNode = document.getElementById('end-debate');
+const introNode = document.getElementById('intro');
+const resultsSectionNode = document.getElementById('results-section');
 
 endDebateButtonNode.addEventListener('click', () => {
     const sortedCandidates = sortCandidatesByDebateScore(candidates);
@@ -141,6 +144,7 @@ endDebateButtonNode.addEventListener('click', () => {
                                 totalScore: sortedCandidates.find(candidate => candidate.id === 'yang').debateScore + candidateTotals.find(candidate => candidate.id === 'yang').totalScore
                             }
                         ]);
+
                 } else {
                     totalCandidateScoresByUserRef.child(userID)
                         .set([
@@ -261,8 +265,12 @@ endDebateButtonNode.addEventListener('click', () => {
                 }
             });
     });
+    //instead of redirecting to results, display results info in left side of page next to sorted list
+    introNode.hidden = true;
+    loadResults();
+    resultsSectionNode.hidden = false;
 
-    window.location = 'results.html';
+    // window.location = 'results.html';
 });
 
 

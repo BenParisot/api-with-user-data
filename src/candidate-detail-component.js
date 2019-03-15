@@ -1,10 +1,12 @@
 import { auth, favoriteArticlesByUserRef } from './firebase.js';
 
 export function makeCandidateDetailArea(candidate) {
+    console.log(candidate);
     const html = `
     <section>
         <img src="${candidate.image}" alt="${candidate.firstName} ${candidate.lastName}">
-        <h2>${candidate.firstName} ${candidate.lastName}</h2>
+        <h1>${candidate.firstName} ${candidate.lastName}</h1>
+        <h2>Total Points: ${candidate.totalScore}</h2>
     </section>`;
     const template = document.createElement('template');
     template.innerHTML = html;
