@@ -261,5 +261,5 @@ endDebateButtonNode.addEventListener('click', () => {
             })
     }
 
-    // window.location = "results.html";
+    window.location = "results.html";
 });
