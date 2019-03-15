@@ -43,6 +43,20 @@ export function loadCandidateNewsItems(newsItems) {
 
         let isFavorite = false;
 
+        userFavoriteArticleRef.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                if(value) {
+                    isFavorite = true;
+                    favoriteArticle.classList.add('favorite');
+                    favoriteArticle.textContent = '‎★ This Article is Saved';
+                } else {
+                    isFavorite = false;
+                    favoriteArticle.classList.remove('favorite');
+                    favoriteArticle.textContent = '‎☆ Save for Later';
+                }
+            });
+
         favoriteArticle.addEventListener('click', () => {
             if(isFavorite) {
                 isFavorite = false;
@@ -54,7 +68,7 @@ export function loadCandidateNewsItems(newsItems) {
             else {
                 isFavorite = true;
                 favoriteArticle.classList.add('favorite');
-                favoriteArticle.textContent = '‎★ Save for Later';
+                favoriteArticle.textContent = '‎★ This Article is Saved';
                 console.log('favorite added');
                 userFavoriteArticleRef.set({
                     img: newsItem.multimedia[3].url,
