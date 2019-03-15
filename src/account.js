@@ -33,7 +33,7 @@ auth.onAuthStateChanged(user => {
                 savedArticlesArray.forEach(article => {
                     const articleLI = makeSavedNewsList(article);
                     const savedArticle = articleLI.querySelector('.favorite-article');
-    
+
                     let isFavorite = false;
 
                     if(savedArticle) {
@@ -59,8 +59,6 @@ auth.onAuthStateChanged(user => {
                             savedArticle.textContent = '‎★ This Article is Saved';
                         }
                     });
-
-
                     newsListNode.appendChild(articleLI);
                 });
             } else {
@@ -69,6 +67,7 @@ auth.onAuthStateChanged(user => {
                 noArticleNotice.textContent = 'You have no saved articles.';
                 newsListNode.appendChild(noArticleNotice);
             }
+
         });
 });
 
