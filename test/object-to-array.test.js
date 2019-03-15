@@ -17,4 +17,4 @@ test('make array from object', assert => {
     const result = objectToArray(object);
 
     assert.deepEqual(result, expected);
-})
+});
