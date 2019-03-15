@@ -1,6 +1,5 @@
 import candidates from '../data/candidates.js';
 import loadCandidates from './candidate-list-component.js';
-import startDebate from './debate-start-component.js';
 import scoreCandidates from './score-plus-minus-component.js';
 import sortCandidatesByDebateScore from './candidates-sort-component.js';
 import loadHeader from './make-header-component.js';
@@ -8,7 +7,6 @@ import { auth, candidatesListByUserRef, totalCandidateScoresByUserRef } from './
 
 loadHeader();
 loadCandidates(candidates);
-startDebate(candidates);
 scoreCandidates(candidates);
 
 const endDebateButtonNode = document.getElementById('end-debate');
@@ -17,10 +15,18 @@ endDebateButtonNode.addEventListener('click', () => {
     const sortedCandidates = sortCandidatesByDebateScore(candidates);
     loadCandidates(sortedCandidates);
     const userID = auth.currentUser.uid;
+    console.log(userID);
     candidatesListByUserRef.child(userID)
         .set(sortedCandidates);
-    if(!totalCandidateScoresByUserRef.child(userID)) {
-        totalCandidateScoresByUserRef.child(userID)
+    
+    const candidatesTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
+    candidatesTotalScoresRef.once('value')
+    .then(snapshot => {
+        console.log(snapshot);
+        const candidateTotals = snapshot.val();
+        if(!candidateTotals) {
+            // set new array
+            totalCandidateScoresByUserRef.child(userID)
             .set([
                 {
                     id: 'booker',
@@ -136,13 +142,12 @@ endDebateButtonNode.addEventListener('click', () => {
                     totalScore: sortedCandidates.find(candidate => candidate.id === 'yang').debateScore
                 }
             ]);
-    }
-    else {
-        const candidatesTotalScoresRef = totalCandidateScoresByUserRef.child(userID);
-        candidatesTotalScoresRef.once('value')
-            .then(snapshot => {
-                const candidateTotals = snapshot.val();
-                totalCandidateScoresByUserRef.child(userID)
+            console.log('new candidate totals', candidateTotals);
+
+        } else {
+            // replace existing array 
+            
+            totalCandidateScoresByUserRef.child(userID)
             .set([
                 {
                     id: 'booker',
@@ -258,8 +263,9 @@ endDebateButtonNode.addEventListener('click', () => {
                     totalScore: sortedCandidates.find(candidate => candidate.id === 'yang').debateScore + candidateTotals.find(candidate => candidate.id === 'yang').totalScore
                 }
             ]);
-            })
-    }
+            console.log('old candidate totals', candidateTotals);
+        }
+    });
 
     window.location = "results.html";
 });

@@ -18,6 +18,7 @@ export function makeProfileHeader(user) {
     <section id="profile-display">
         <img src="${avatar}" alt="user avatar">
         <h2>${user.displayName}</h2>
+        <a href="account.html">Your Account</a>
         <button>Sign Out</button>
     </section>`;
     const template = document.createElement('template');
