@@ -103,9 +103,9 @@ main {
     width: 300px;
 }
 
-#right a {
+#right button {
     color: black;
-    margin: 0px 15px;
+    margin: 10px 15px;
     box-shadow: none;
     border: solid black;
     padding: 10px 15px;
@@ -236,10 +236,10 @@ footer {
     padding: 10px 30px 10px 0px;
 }
 
-#candidates-list li {
+/* #candidates-list li {
     width: 80%;
     padding: 3px;
-}
+} */
 
 #account-intro {
     display: flex;
@@ -266,3 +266,4 @@ footer {
     text-transform: uppercase;
     border: 1px solid white;
 }
+
