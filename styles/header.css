@@ -213,5 +213,56 @@ footer {
 
 #candidate-news li img {
     float: left;
-    margin: 5px 20px 20px;
+    margin: 5px 20px 30px;
+    width: 75px;
+    height: 75px;
+}
+
+/*account page styles */
+
+#saved-area {
+    display: flex;
+    margin: 30px 25px;
+}
+
+#candidates {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45%;
+    border: 1px solid black;
+    margin-right: 15px;
+    padding: 10px 30px 10px 0px;
+}
+
+#candidates-list li {
+    width: 80%;
+    padding: 3px;
+}
+
+#account-intro {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 25px;
+}
+
+#account-intro h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 36px;
+    flex-grow: 1;
+    color: white;
+    flex-grow: 0;
+    margin-right: 25px;
+}
+
+#account-intro a {
+    font-family: 'Kanit', sans-serif;
+    background-color: coral;
+    padding: 15px 15px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid white;
 }
