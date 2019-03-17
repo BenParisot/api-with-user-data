@@ -2,9 +2,10 @@ import { auth, favoriteArticlesByUserRef } from './firebase.js';
 
 export function makeCandidateDetailArea(candidate) {
     const html = `
-    <section>
+    <section id="photo-name">
         <img src="${candidate.image}" alt="${candidate.firstName} ${candidate.lastName}">
         <h1>${candidate.firstName} ${candidate.lastName}</h1>
+        <a href="track-debate.html">Track Another Debate</a>
     </section>`;
     const template = document.createElement('template');
     template.innerHTML = html;

@@ -161,3 +161,57 @@ footer {
     height: 100px;
     padding-top: 25px;
 }
+
+
+/*candidate detail page styling*/
+
+#details {
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 50px;
+}
+
+#photo-name {
+    padding-top: 15px;
+}
+
+#photo-name img {
+    margin: 15px;
+    margin-right: 35px;
+    float: left;
+    margin-bottom: 100vh;
+}
+
+#photo-name h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 36px;
+    flex-grow: 1;
+    color: #f78ca4
+}
+
+#photo-name a {
+    font-family: 'Kanit', sans-serif;
+    background-color: coral;
+    padding: 15px 15px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#news-intro {
+    font-family: 'Kanit', sans-serif;
+    font-size: 28px;
+    flex-grow: 1;
+    color: #f78ca4
+}
+
+#candidate-news li {
+    padding: 0px 15px;
+    margin: 10px 0px;
+    list-style: none;
+}
+
+#candidate-news li img {
+    float: left;
+    margin: 5px 20px 20px;
+}
