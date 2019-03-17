@@ -13,7 +13,7 @@ test('make list of candidates results area from template', assert => {
     };
     const expected = `
         <li>
-            <p>Cory Booker: 7 points, <a href="candidate-detail.html#f=Cory&amp;l=Booker">Candidate Detail</a></p>
+            <p>Cory Booker: 7 points, <a href="candidate-detail.html#f=Cory&amp;l=Booker">View Candidate Detail</a></p>
         </li>`;
 
     const result = makeResultsArea(candidate);
