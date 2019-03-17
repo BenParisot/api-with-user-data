@@ -52,29 +52,55 @@ header img {
 #candidates-list li {
     display: flex;
     flex-direction: row;
+    border: 1px solid black;
+    margin-bottom: -1px;
+    color: black;
 }
 
 #candidates-list li:nth-child(odd) {
-    background: coral;
-    color: black;
+    background-color: coral;
 }
 
 #candidates-list li:nth-child(even) {
-    color: black;
+    background-color: #f78ca4;
 }
 
 #candidates-list button {
-    width: 15%;
+    width: 200px;
     font-size: 90px;
+    color: coral;
+    background-color: white;
+    border: none;
+}
+
+#candidates-list button:hover {
+    background-color: #f78ca4;
+    color: white;
+    cursor: pointer;
 }
 
 .candidate-detail {
-    width: 70%;
+    width: 200px;
     text-align: center;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
 }
 
 .candidate-detail h2 {
-    font-size: 36px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 28px;
     line-height: .3;
     text-transform: uppercase;
+}
+
+.candidate-detail img {
+    width: 100%;
+}
+
+#results a {
+    color: coral;
+}
+
+#results a:hover {
+    color: #f78ca4;
 }

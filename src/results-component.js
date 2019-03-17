@@ -3,7 +3,7 @@ import { auth, candidatesListByUserRef } from './firebase.js';
 export function makeResultsArea(candidate) {
     const html = `
         <li>
-            <p>${candidate.firstName} ${candidate.lastName}: ${candidate.debateScore} points, <a href="candidate-detail.html#f=${candidate.firstName}&l=${candidate.lastName}">Candidate Detail</a></p>
+            <p>${candidate.firstName} ${candidate.lastName}: ${candidate.debateScore} points, <a href="candidate-detail.html#f=${candidate.firstName}&l=${candidate.lastName}">View Candidate Detail</a></p>
         </li>`;
     const template = document.createElement('template');
     template.innerHTML = html;
